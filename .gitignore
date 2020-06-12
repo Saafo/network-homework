@@ -2,3 +2,6 @@
 *.out
 gitignore/*
 .vscode/*
+.DS_Store
+*.tar
+*.dSYM/
