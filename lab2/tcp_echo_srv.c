@@ -55,8 +55,8 @@ int install_sig_handlers(){
 	struct sigaction sigact_chld, old_sigact_chld;
     // sigact_chld.sa_handler = SIG_IGN; //建议采用SIG_IGN
 	sigact_chld.sa_handler = sig_chld;
-    sigact_pipe.sa_flags = 0;
-	sigact_pipe.sa_flags |= SA_RESTART;//设置受影响的慢系统调用重启
+    sigact_chld.sa_flags = 0;
+	sigact_chld.sa_flags |= SA_RESTART;//设置受影响的慢系统调用重启
 	sigemptyset(&sigact_chld.sa_mask);
     res = sigaction(SIGCHLD, &sigact_chld, &old_sigact_chld);
 	//如果SIGCHLD的处理函数安装失败，则返回-2
